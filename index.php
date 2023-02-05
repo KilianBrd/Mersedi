@@ -5,7 +5,7 @@
 <head>
 	<title>Mersedi</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="style/index.css">
 </head>
 <body>
 	<?php require "header.php" ?>

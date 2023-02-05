@@ -7,14 +7,19 @@ session_start();
 <head>
 	<title>S'inscrire</title>
 	<meta charset="utf-8">
-</head>
-<body>
 	<?php require "header.php"; ?>
-	<form method="post" action="">
-		<h1>Aller, inscris toi, on est bien</h1>
-		<input type="text" name="pseudo" id="pseudo" placeholder="Ton pseudo !" required><br>
-		<input type="text" name="email" id="email" placeholder="Balance ton mail ma poule !" required><br>
-		<input type="password" name="mdp" id="mdp" placeholder="Ton mot de passe secret" required><br>
+</head>
+<body id="bodyInscription" class="bosyInscription">
+	<form id="formInscription" method="post" action="">
+		<div id="titreInscription">
+			<h1>Aller, inscris toi, on est bien</h1>
+		</div>
+		<label for="pseudo" id="labelPseudo">Ton pseudo !</label>
+		<input type="text" name="pseudo" id="pseudo" class="inp-anim" required><br>
+		<label for="email" id="labelEmail">Balance ton mail ma poule !</label>
+		<input type="text" name="email" id="email" class="inp-anim" required><br>
+		<label for="mdp" id="labelMdp">Ton mot de passe secret !</label>
+		<input type="password" name="mdp" id="mdp" class="inp-anim" required><br>
 		<input type="submit" name="formsend" id="formsend">
 	</form>
 </body>

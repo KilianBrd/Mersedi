@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,30 +8,11 @@
 	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-	<nav>
-		<ul>
-			<li>
-				<a href="#">Accueil</a>
-			</li>
-			<li>
-				<a href="contact.html">Contacte-moi</a>
-			</li>
-			<li>
-				<a href="connection.html">Se connecter</a>
-			</li>
-			<li>
-				<a href="inscription.php">S'inscrire</a>
-			</li>
-		</ul>
-	</nav>
-	<h1>Mersedi Blog</h1>
-	<form method="post" action="connection.php">
-		<input type="text" name="mail">
-		<input type ="text" name="mdp">
-		<input type="submit" name="submit">
-	</form>
-	<?php
-	echo "lol";
-	?>
+	<?php require "header.php" ?>
+	<h1 id="titre">Mersedi Blog</h1>
+	<?php echo "<p> Bienvenue " . $_SESSION['pseudo']; ?><br>
+	<a href ="deconnexion.php">
+		<button>Se déconnecter</button>
+	</a>
 </body>
 </html>

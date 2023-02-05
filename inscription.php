@@ -9,7 +9,9 @@ session_start();
 	<meta charset="utf-8">
 </head>
 <body>
+	<?php require "header.php"; ?>
 	<form method="post" action="">
+		<h1>Aller, inscris toi, on est bien</h1>
 		<input type="text" name="pseudo" id="pseudo" placeholder="Ton pseudo !" required><br>
 		<input type="text" name="email" id="email" placeholder="Balance ton mail ma poule !" required><br>
 		<input type="password" name="mdp" id="mdp" placeholder="Ton mot de passe secret" required><br>

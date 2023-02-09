@@ -11,12 +11,12 @@
 	<?php require "header.php" ?>
 	<h1 id="titre">Mersedi Blog</h1>
 	<?php echo "<p> Bienvenue " . $_SESSION['pseudo']; ?><br>
-	<a href ="deconnexion.php">
-		<button>Se déconnecter</button>
-	</a>
-	<a href="creer.php">
-		<button>Créer un article</button>
-	</a>
+		<a href ="deconnexion.php">
+			<button>Se déconnecter</button>
+		</a>
+		<a href="creer.php">
+			<button>Créer un article</button>
+		</a>
 </body>
 </html>
 
@@ -28,8 +28,8 @@ if (isset($_SESSION['pseudo'])) {
 	header('Location: /SiteMersedi/connection.php');
 }
 
-$articles = $bdd->query('SELECT art_id as idArticle, art_contenu as contenu, art_titre as titre, utilisateur.pseudo as pseudo FROM article
-						 inner join utilisateur on article.idUser = utilisateur.id');
+$articles = $bdd->query('SELECT art_id as idArticle, art_contenu as contenu, art_titre as titre, utilisateur.pseudo as pseudo, art_date as date FROM article
+						 inner join utilisateur on article.idUser = utilisateur.id order by date desc');
                 foreach ($articles as $article):
                     ?>
                     <article>
@@ -38,6 +38,8 @@ $articles = $bdd->query('SELECT art_id as idArticle, art_contenu as contenu, art
                         </header>
                         <p><?= $article['contenu']; ?></p>
                         <p><?= $article['pseudo']; ?></p>
+						<?php $date = date("d-m-Y H:i", strtotime($article['date'])); ?>
+						<time><?= $date ?></time>
                     </article>
                     <hr />
                 <?php endforeach; ?>

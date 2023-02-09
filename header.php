@@ -23,7 +23,7 @@
 				<a id="navLien" href="inscription.php">S'inscrire</a>
 			</li>
 			<li>
-				<?php echo '<p id="pseudoNav">' . $_SESSION['pseudo'] . "</p>"; ?>
+				<a href="profil.php" id="navLien"><?php echo $_SESSION['pseudo']; ?></a>
 			</li>
 		</ul>
 	</nav>

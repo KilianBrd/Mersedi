@@ -70,4 +70,24 @@ form {
     border: 2px solid black;
     margin-top: 2%;
     width: 15%;
+    font-size: 20px;
+}
+
+#formConnexion input {
+    padding: 15px;
+    border-radius: 5px;
+    border: 2px solid black;
+    margin-top: 2%;
+    width: 15%;
+    font-size: 20px;
+}
+
+p {
+    font-size: 20px;
+}
+
+#bodyConnexion {
+    background: url('../assets/Mersedi.png');
+    background-size: cover;
+    background-position: center;
 }

@@ -5,14 +5,15 @@
 	<meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
-<body>
+<body id="bodyConnexion">
 <?php require "header.php"; ?>
-	<form method="post" action="">
+    <p>Il te faut un compte si tu veux acceder au site ! Alors connecte toi ou créer un compte !</p>
+	<form method="post" action="" id="formConnexion">
         <h1> Connecte-toi !</h1>
 		<input type="text" name="pseudo" id="pseudo" placeholder="Ton pseudo !" required><br>
 		<input type="password" name="mdp" id="mdp" placeholder="Ton mot de passe secret" required><br>
 		<input type="submit" name="formsend" id="formsend">
-        <p> Tu n'as pas encore de compte ?</p><a href="inscription.php"> Clique ici ou j'te clique</a>
+        <p> Tu n'as pas encore de compte ?<a href="inscription.php"> Clique ici ou j'te clique</a></p>
 	</form>
 </body>
 </html>
@@ -37,6 +38,7 @@ if(isset($_POST['formsend'])) {
                 $_SESSION['pseudo']=$pseudo;
                 $_SESSION['mdp'] = $mdp;
                 $_SESSION['id'] = $idUser;
+                header('Location: /SiteMersedi/index.php');
             } else {
                 echo "mot de passe incorrect";
             }
@@ -46,6 +48,4 @@ if(isset($_POST['formsend'])) {
     }else {
         echo "Rempli tous les champs, de suite";
     }
-} else {
-    $pseudo = " ";
 }

@@ -7,20 +7,20 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style/index.css">
 </head>
-<body>
+<body id="bodyIndex">
 	<?php require "header.php" ?>
-	<h1 id="titre">Mersedi Blog</h1>
+	<div id="titreConnexion">
+		<h1 id="titre">Mersedi Blog</h1>
+	</div>
 	<?php echo "<p> Bienvenue " . $_SESSION['pseudo']; ?><br>
-		<a href ="deconnexion.php">
-			<button>Se déconnecter</button>
+		<a id="lienIndex"href ="deconnexion.php">
+			<button id="boutonIndex">Se déconnecter</button>
 		</a>
-		<a href="creer.php">
-			<button>Créer un article</button>
+		<a id="lienIndex" href="creer.php">
+			<button id="boutonIndex">Créer un article</button>
 		</a>
-</body>
-</html>
 
-<?php 
+		<?php 
 include "database.php";
 if (isset($_SESSION['pseudo'])) {
 	
@@ -34,12 +34,18 @@ $articles = $bdd->query('SELECT art_id as idArticle, art_contenu as contenu, art
                     ?>
                     <article>
                         <header>
+							<div id="divArticle">
                             <h1 class="titreArticle"><?php echo $article['titre']; ?></h1>
+							</div>
                         </header>
-                        <p><?= $article['contenu']; ?></p>
-                        <p><?= $article['pseudo']; ?></p>
+                        <p><strong><?= $article['contenu']; ?></strong></p>
+                        <p><i><?= $article['pseudo']; ?></i></p>
 						<?php $date = date("d-m-Y H:i", strtotime($article['date'])); ?>
 						<time><?= $date ?></time>
                     </article>
                     <hr />
                 <?php endforeach; ?>
+
+</body>
+</html>
+

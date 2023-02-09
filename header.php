@@ -11,6 +11,9 @@
 <nav>
 		<ul>
 			<li>
+				<img src="assets/Mersedi.png" id="icoNavbar">
+			</li>
+			<li>
 				<a id="navLien" href="index.php">Accueil</a>
 			</li>
 			<li>

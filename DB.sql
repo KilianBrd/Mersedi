@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 09 fév. 2023 à 12:33
+-- Généré le : jeu. 09 fév. 2023 à 21:20
 -- Version du serveur : 10.5.18-MariaDB-0+deb11u1
 -- Version de PHP : 7.4.33
 
@@ -40,9 +40,10 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`art_id`, `art_contenu`, `art_titre`, `idUser`, `art_date`) VALUES
-(5, 'oui', 'Je test', 19, '2023-02-09 00:00:00'),
-(6, 'cezxz', 'azdzax', 19, '2023-02-09 12:28:28'),
-(7, 'likl', 'Oui oUi', 19, '2023-02-09 12:29:45');
+(11, 'Ceci est un test', 'Encore un test', 27, '2023-02-09 19:30:10'),
+(12, 'Mon poste !', 'Oui c\'ets encore un test', 27, '2023-02-09 20:08:42'),
+(13, 'OUiiiiiiiiiiii', 'Le titre ', 27, '2023-02-09 20:09:38'),
+(14, 'oui', 'Test pour les postes', 19, '2023-02-09 20:12:08');
 
 -- --------------------------------------------------------
 
@@ -81,7 +82,8 @@ INSERT INTO `utilisateur` (`id`, `pseudo`, `mdp`, `email`) VALUES
 (23, 'Thibault', '$2y$10$qp20jc5Nm5gGzNEZzZRlP.3bbzHWfqDDBxSJHpy1xIcZrUsZ9dSUK', 'thibault@gmail.com'),
 (24, 'Petit test', '$2y$10$bwPZRuTNyARP5O/qXYaI2eJ.oGqLuqO59kzSAz4AuSX6vqPKqRfFW', 'Tets@adza.com'),
 (25, 'Petit test', '$2y$10$fh1AIMxUJJ.yKl12nc/ZTe.LDEBqWB0.o06gMIfayVwMLtVjLD/aO', 'Tets@adza.com'),
-(26, 'Petit test', '$2y$10$BqKHHTmK1nSOjsPLXycOKOUBFg/1PWpfV9vR028GJRinw4nOdJm0q', 'Tets@adza.com');
+(26, 'Petit test', '$2y$10$BqKHHTmK1nSOjsPLXycOKOUBFg/1PWpfV9vR028GJRinw4nOdJm0q', 'Tets@adza.com'),
+(27, 'KilouTest', '$2y$10$quk7nub9M6cdWbe1jF2nHObKI2th3dWiQ1jK1I5rj0Lg6mKui1LNm', 'Test@gmail.com');
 
 --
 -- Index pour les tables déchargées
@@ -116,13 +118,13 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `art_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `art_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Contraintes pour les tables déchargées

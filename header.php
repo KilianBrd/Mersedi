@@ -2,27 +2,23 @@
 session_start();
 $page = basename($_SERVER['PHP_SELF']);
 
-$liste_pages_unconnect = array(
-	array('page' => 'index', 'title' => 'Accueil'),
-	array('page' => 'connection', 'title' => 'Connection'),
-	array('page' => 'inscription', 'title' => "S'inscrire"),
-);
-
-$liste_pages_connect = array(
-	array('page' => 'index', 'title' => 'Accueil'),
-	array('page' => 'profil', 'title' => $_SESSION['pseudo']),
-	array('page' => 'creerArticle', 'title' => 'Creer un article'),
-	array('page' => 'listeArticle', 'title' => 'listeArticle'),
-);
-
 $liste_pages_nocookie = array(
 	array('page' => 'index', 'title' => 'Accueil'),
 );
 
 if(isset($_SESSION['pseudo'])) {
-	$arrayPage = $liste_pages_connect;
+	$arrayPage = array(
+		array('page' => 'index', 'title' => 'Accueil'),
+		array('page' => 'profil', 'title' => $_SESSION['pseudo']),
+		array('page' => 'creerArticle', 'title' => 'Creer un article'),
+		array('page' => 'listeArticle', 'title' => 'listeArticle'),
+	);
 } else {
-	$arrayPage = $liste_pages_unconnect;
+	$arrayPage = array(
+		array('page' => 'index.php', 'title' => 'Accueil'),
+		array('page' => 'connection', 'title' => 'Connection'),
+		array('page' => 'inscription', 'title' => "S'inscrire"),
+	);
 }
 
 
@@ -38,9 +34,6 @@ $active = 'active';
 	<link rel="stylesheet" type="text/css" href="./style/style.css">
 	<link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
 	<link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
 	<title>Mersedi | <?php echo $titlePage ?></title>
 </head>
 

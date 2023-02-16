@@ -14,10 +14,11 @@ if(isset($_POST['formsend'])) {
         if ($recupUser->rowCount() > 0){
             if(password_verify($mdp, $mdpHash)){
                 echo "c'est tout bon " . $pseudo;
-                $_SESSION['pseudo']=$pseudo;
+                session_start();
+                $_SESSION['pseudo'] = $pseudo;
                 $_SESSION['mdp'] = $mdp;
                 $_SESSION['id'] = $idUser;
-                header('Location: ./index.php');
+                header('Location: ../index.php');
             } else {
                 echo "mot de passe incorrect";
             }

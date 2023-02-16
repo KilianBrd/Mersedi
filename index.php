@@ -1,4 +1,4 @@
-<?php require "./header.php" ?>
+<?php require "header.php" ?>
 <div class="presentation">
   <video id="video_prensentation" autoplay loop muted>
     <source src="./assets/video_index_presentation.mp4" type=video/mp4>
@@ -28,4 +28,6 @@
   <iframe src="https://discord.com/widget?id=882698460321693806&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 </div>
 
-<?php require "./footer.php" ?>
+<a href="backend/deconnexionBackEnd.php">Se déconnecter</a>
+<?php echo $_SESSION['pseudo']; ?>
+<?php require "./footer.php"; ?>

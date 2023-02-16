@@ -233,3 +233,17 @@ footer .contact .contact_img a {
 footer .contact .contact_img img {
     width: 50px;
 }
+
+/*---------------Flo tu peux suppr c'est pour des test ------------------*/
+
+.formConnexion {
+    padding-top: 50px;
+}
+
+.formInscr {
+    padding-top: 50px;
+}
+
+.creerArticle {
+    padding-top: 200px;
+}

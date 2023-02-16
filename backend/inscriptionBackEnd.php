@@ -12,10 +12,11 @@ if(isset($_POST['formsend'])){
 			$recupUser = $bdd -> prepare('select * from utilisateur where pseudo = ? and mdp = ? and email = ?');
 			$recupUser->execute(array($pseudo, $mdp, $email));
 			if ($recupUser->rowCount() > 0) {
+				session_start();
 				$_SESSION['pseudo'] = $pseudo;
 				$_SESSION['mdp'] = $mdp;
 				$_SESSION['id'] = $recupUser->fetch()['id'];
-				header('Location: ./index.php');
+				header('Location: ../index.php');
 			}
 			echo $_SESSION['pseudo'];
 		}else {

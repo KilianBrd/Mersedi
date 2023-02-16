@@ -6,7 +6,7 @@
 	<?php require "header.php"; ?>
 </head>
 <body id="bodyInscription" class="bosyInscription">
-	<form id="formInscription" method="post" action="../backend/inscriptionBackEnd.php">
+	<form id="formInscription" method="post" action="backend/inscriptionBackEnd.php" class="formInscr">
 		<div id="titreInscription">
 			<h1>Aller, inscris toi, on est bien</h1>
 		</div>

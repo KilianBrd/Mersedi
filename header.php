@@ -10,17 +10,26 @@ $liste_pages_unconnect = array(
 
 $liste_pages_connect = array(
 	array('page' => 'index', 'title' => 'Accueil'),
-	array('page' => 'profil', 'title' => 'Profil'),
+	array('page' => 'profil', 'title' => $_SESSION['pseudo']),
+	array('page' => 'creerArticle', 'title' => 'Creer un article'),
+	array('page' => 'listeArticle', 'title' => 'listeArticle'),
 );
 
 $liste_pages_nocookie = array(
 	array('page' => 'index', 'title' => 'Accueil'),
 );
 
+if(isset($_SESSION['pseudo'])) {
+	$arrayPage = $liste_pages_connect;
+} else {
+	$arrayPage = $liste_pages_unconnect;
+}
+
+
 $title_id = array_search($page, array_column($liste_pages_unconnect, 'page'));
-$arrayPage = $liste_pages_unconnect;
 $titlePage = $arrayPage[$title_id]['title'];
 $active = 'active';
+
 ?>
 
 <!DOCTYPE html>
@@ -52,6 +61,7 @@ $active = 'active';
                 ?>
                     <li><a href="<?php echo $url; ?>.php" class= "navLien custom-btn btn-navbar<?php $page == $url?'active':''?>"> <?php echo $title ?></a></li>
                 <?php } ?>
+				<li> <?php $_SESSION['pseudo']; ?>
 			</ul>
 		</div>
 	</nav>

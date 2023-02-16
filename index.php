@@ -20,7 +20,7 @@
 			<button id="boutonIndex">Créer un article</button>
 		</a>
 
-		<?php
+		<?php 
 include "database.php";
 if (isset($_SESSION['pseudo'])) {
 	

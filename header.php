@@ -8,9 +8,15 @@ $liste_pages_unconnect = array(
 	array('page' => 'inscription', 'title' => "S'inscrire"),
 );
 
+if(isset($_SESSION['pseudo'])) {
+	$pseudo = $_SESSION['pseudo'];
+} else {
+	$pseudo ="";
+}
+
 $liste_pages_connect = array(
 	array('page' => 'index', 'title' => 'Accueil'),
-	array('page' => 'profil', 'title' => $_SESSION['pseudo']),
+	array('page' => 'profil', 'title' => $pseudo),
 	array('page' => 'creerArticle', 'title' => 'Creer un article'),
 	array('page' => 'listeArticle', 'title' => 'listeArticle'),
 );
@@ -61,7 +67,6 @@ $active = 'active';
                 ?>
                     <li><a href="<?php echo $url; ?>.php" class= "navLien custom-btn btn-navbar<?php $page == $url?'active':''?>"> <?php echo $title ?></a></li>
                 <?php } ?>
-				<li> <?php $_SESSION['pseudo']; ?>
 			</ul>
 		</div>
 	</nav>

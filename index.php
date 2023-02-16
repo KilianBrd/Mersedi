@@ -27,7 +27,4 @@
   </div>
   <iframe src="https://discord.com/widget?id=882698460321693806&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 </div>
-
-<a href="backend/deconnexionBackEnd.php">Se déconnecter</a>
-<?php echo $_SESSION['pseudo']; ?>
 <?php require "./footer.php"; ?>

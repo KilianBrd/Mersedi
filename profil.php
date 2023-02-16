@@ -1,6 +1,6 @@
 <?php
 require "header.php";
-include "database.php";
+require "backend/database.php";
 ?>
 <body id="bodyIndex">
 <div id="titreConnexion">
@@ -51,5 +51,7 @@ $articles -> execute(array($_SESSION['id']));?>
     $suppr -> execute(array($idSuppr));
 
     ?>
-
+<a href="backend/deconnexionBackEnd.php">Se déconnecter</a>
+<?php
+require "footer.php"; ?>
         </body>

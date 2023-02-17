@@ -28,7 +28,7 @@ $articles -> execute(array($_SESSION['id']));
                     <hr />
                 <?php endforeach; ?>
 
-<p> Supprimer un article :</p><?php
+<label for="articleSuppr"> Supprimer un article :</label><?php
 $articles = $bdd->prepare('SELECT art_id as idArticle, art_contenu as contenu, art_titre as titre,
                          utilisateur.pseudo as pseudo, art_date as date FROM article inner join utilisateur
                           on article.idUser = utilisateur.id where article.idUser = ?;');
@@ -52,7 +52,7 @@ $articles -> execute(array($_SESSION['id']));?>
 
 <?php 
     
-    if($_POST['pseudoSend']) {
+    if(@$_POST['pseudoSend']) {
         $newPseudo = $_POST['changePseudo'];
         $idUser = $_SESSION['id'];
         $changePseudo = $bdd -> prepare('UPDATE utilisateur SET pseudo = ? WHERE id = ?');
@@ -60,7 +60,7 @@ $articles -> execute(array($_SESSION['id']));?>
         $_SESSION['pseudo'] = $newPseudo;
     }
 
-    $idSuppr = $_POST['articleSuppr'];
+    $idSuppr = @$_POST['articleSuppr'];
     $suppr = $bdd -> prepare('delete from article where art_id = ?');
     $suppr -> execute(array($idSuppr));
 

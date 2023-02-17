@@ -42,10 +42,24 @@ $articles -> execute(array($_SESSION['id']));?>
             <option value="<?php echo $idArticle; ?>"> <?php echo $titreArticle; ?> </option>
         <?php }; ?>
     </select>
-    <input type="submit" name="formsend" id="formsend">
+    <input type="submit" name="formsend" id="formsend"><br><br><br>
+    <form class="changePseudo" method="post">
+        <label for="changePseudo">Change ton pseudo :</label>
+        <input type="text" placeholder="Ton nouveau pseudo !" name="changePseudo">
+        <input type="submit" name="pseudoSend" id="pseudoSend">
+    </form>
 </form>
 
 <?php 
+    
+    if($_POST['pseudoSend']) {
+        $newPseudo = $_POST['changePseudo'];
+        $idUser = $_SESSION['id'];
+        $changePseudo = $bdd -> prepare('UPDATE utilisateur SET pseudo = ? WHERE id = ?');
+        $changePseudo -> execute(array($newPseudo, $idUser));
+        $_SESSION['pseudo'] = $newPseudo;
+    }
+
     $idSuppr = $_POST['articleSuppr'];
     $suppr = $bdd -> prepare('delete from article where art_id = ?');
     $suppr -> execute(array($idSuppr));

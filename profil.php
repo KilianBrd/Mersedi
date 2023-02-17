@@ -4,7 +4,7 @@ require "backend/database.php";
 ?>
 <body id="bodyIndex">
 <div id="titreConnexion">
-    <h1> Mes postes :</h1>
+    <h1 class="mesPostes"> Mes postes :</h1>
 </div>
 <?php
 
@@ -65,7 +65,8 @@ $articles -> execute(array($_SESSION['id']));?>
     $suppr -> execute(array($idSuppr));
 
     ?>
-<a href="backend/deconnexionBackEnd.php">Se déconnecter</a>
+<a href="backend/deconnexionBackEnd.php">Se déconnecter</a><br>
+<a href="changeMdp.php"> Changer son mot de passe</a>
 <?php
 require "footer.php"; ?>
         </body>

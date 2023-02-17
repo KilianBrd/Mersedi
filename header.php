@@ -2,24 +2,11 @@
 session_start();
 $page = basename($_SERVER['PHP_SELF']);
 
-$liste_pages_unconnect = array(
-	array('page' => 'index', 'title' => 'Accueil'),
-	array('page' => 'connection', 'title' => 'Connection'),
-	array('page' => 'inscription', 'title' => "S'inscrire"),
-);
-
 if(isset($_SESSION['pseudo'])) {
 	$pseudo = $_SESSION['pseudo'];
 } else {
 	$pseudo ="";
 }
-
-$liste_pages_connect = array(
-	array('page' => 'index', 'title' => 'Accueil'),
-	array('page' => 'profil', 'title' => $pseudo),
-	array('page' => 'creerArticle', 'title' => 'Creer un article'),
-	array('page' => 'listeArticle', 'title' => 'listeArticle'),
-);
 
 $liste_pages_nocookie = array(
 	array('page' => 'index', 'title' => 'Accueil'),
@@ -30,7 +17,7 @@ if(isset($_SESSION['pseudo'])) {
 		array('page' => 'index', 'title' => 'Accueil'),
 		array('page' => 'profil', 'title' => $_SESSION['pseudo']),
 		array('page' => 'creerArticle', 'title' => 'Creer un article'),
-		array('page' => 'listeArticle', 'title' => 'listeArticle'),
+		array('page' => 'listeArticle', 'title' => 'Tous les articles'),
 	);
 } else {
 	$arrayPage = array(
@@ -41,7 +28,7 @@ if(isset($_SESSION['pseudo'])) {
 }
 
 
-$title_id = array_search($page, array_column($liste_pages_unconnect, 'page'));
+$title_id = array_search($page, array_column($arrayPage, 'page'));
 $titlePage = $arrayPage[$title_id]['title'];
 $active = 'active';
 

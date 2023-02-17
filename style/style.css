@@ -233,3 +233,13 @@ footer .contact .contact_img a {
 footer .contact .contact_img img {
     width: 50px;
 }
+
+/*---------- Test Mersedi (tu peux suppr) ----------*/
+
+div.divCreerArticle {
+    padding-top: 100px;
+}
+
+.testArticle {
+    padding-top: 140px;
+}

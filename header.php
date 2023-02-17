@@ -2,23 +2,33 @@
 session_start();
 $page = basename($_SERVER['PHP_SELF']);
 
-$liste_pages_unconnect = array(
-	array('page' => 'index', 'title' => 'Accueil'),
-	array('page' => 'connection', 'title' => 'Connection'),
-	array('page' => 'inscription', 'title' => "S'inscrire"),
-);
-
-$liste_pages_connect = array(
-	array('page' => 'index', 'title' => 'Accueil'),
-	array('page' => 'profil', 'title' => 'Profil'),
-);
+if (isset($_SESSION['pseudo'])) {
+	$pseudo = $_SESSION['pseudo'];
+} else {
+	$pseudo = "";
+}
 
 $liste_pages_nocookie = array(
-	array('page' => 'index', 'title' => 'Accueil'),
+	array('page' => 'index.php', 'title' => 'Accueil'),
 );
 
-$title_id = array_search($page, array_column($liste_pages_unconnect, 'page'));
-$arrayPage = $liste_pages_unconnect;
+if (isset($_SESSION['pseudo'])) {
+	$arrayPage = array(
+		array('page' => 'index.php', 'title' => 'Accueil'),
+		array('page' => 'creerArticle.php', 'title' => 'Creer un article'),
+		array('page' => 'listeArticle.php', 'title' => 'Tous les articles'),
+		array('page' => 'profil.php', 'title' => 'Compte'),
+	);
+} else {
+	$arrayPage = array(
+		array('page' => 'index.php', 'title' => 'Accueil'),
+		array('page' => 'connection.php', 'title' => 'Connection'),
+		array('page' => 'inscription.php', 'title' => "S'inscrire"),
+	);
+}
+
+
+$title_id = array_search($page, array_column($arrayPage, 'page'));
 $titlePage = $arrayPage[$title_id]['title'];
 $active = 'active';
 ?>
@@ -46,12 +56,15 @@ $active = 'active';
 		<div class="menu">
 			<ul>
 				<?php
-                foreach ($arrayPage as $item) {
-                    $url = $item['page'];
-                    $title = $item['title'];
-                ?>
-                    <li><a href="<?php echo $url; ?>.php" class= "navLien custom-btn btn-navbar<?php $page == $url?'active':''?>"> <?php echo $title ?></a></li>
-                <?php } ?>
+				foreach ($arrayPage as $item) {
+					$url = $item['page'];
+					$title = $item['title'];
+					if ($item['title'] === "Compte") {
+						echo "<li><div class='profil_header'><a href='./" . $url . "'><img src='./assets/user.png'><p>" . $_SESSION["pseudo"] . "</p></a></div></li>";
+					} else {
+						echo '<li><a href="./' . $url . '" class="navLien custom-btn btn-navbar">'. $title . '</a></li>';
+					}
+				} ?>
 			</ul>
 		</div>
 	</nav>
